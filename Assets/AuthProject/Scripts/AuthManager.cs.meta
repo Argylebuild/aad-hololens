@@ -3,7 +3,17 @@ guid: 1d699895b3a96ca40ab9bb3cc180a235
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - DebugText: {instanceID: 0}
+  - UserImage: {instanceID: 0}
+  - DefaultImage: {instanceID: 0}
+  - ScrollView: {instanceID: 0}
+  - AppSettings: {fileID: 4900000, guid: d8f54b4321514474bb997cec0da45996, type: 3}
+  - StatusText: {instanceID: 0}
+  - UserText: {instanceID: 0}
+  - IrisCheckBox: {instanceID: 0}
+  - DeviceCodeFlowCheckBox: {instanceID: 0}
+  - TestStatus: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
