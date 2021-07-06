@@ -4,7 +4,7 @@ using System;
 using System.Threading.Tasks;
 public class MSALLoginProvider : BaseLoginProvider
 {
-    public MSALLoginProvider(IAADLogger Logger, IUserStore store, string clientId, string authority, string tenantId) : 
+    public MSALLoginProvider(IAADLogger Logger, IUserStore store, string clientId, string authority, string tenantId) :
         base(Logger, store, clientId, authority)
     {
         TenantId = tenantId;
@@ -42,12 +42,14 @@ public class MSALLoginProvider : BaseLoginProvider
         var ret = await Task.Run(async () =>
         {
 #if LATEST_MSAL
+        Logger.Log("Running Latest MSAL");
             var app = PublicClientApplicationBuilder.Create(ClientId)
                 .WithDefaultRedirectUri()
                 .WithAuthority(url)
                 .WithLogging(LoggingCallback)
                 .Build();
 #else
+        Logger.Log("Running Older MSAL");
         var app = new PublicClientApplication(ClientId);
 #endif
 
@@ -60,8 +62,8 @@ public class MSALLoginProvider : BaseLoginProvider
             }
 
             //string[] scopes = new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
-            string[] scopes = new string[] { "https://sts.mixedreality.azure.com//.default" };
-            
+            string[] scopes = new string[] { "User.Read" };
+
             Microsoft.Identity.Client.AuthenticationResult authResult = null;
 
             try
@@ -127,6 +129,7 @@ public class MSALLoginProvider : BaseLoginProvider
 
         if (ret.Account != null && !string.IsNullOrEmpty(ret.Account.HomeAccountId.Identifier))
         {
+            Logger.Log(ret.Account.ToString());
             Store.SaveUser(UserIdKey, ret.Account.HomeAccountId.Identifier);
         }
 
