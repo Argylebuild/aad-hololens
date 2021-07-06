@@ -1,7 +1,7 @@
 {
     "ARRAccountId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "ARRRegion": "eastus",
-    "ClientId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "TenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "ClientId": "358abe49-305e-43b1-8ca0-41d8785f2120",
+    "TenantId": "121ec4f9-cacd-4848-8a27-af7399377915",
     "Authority": "organizations"
 }

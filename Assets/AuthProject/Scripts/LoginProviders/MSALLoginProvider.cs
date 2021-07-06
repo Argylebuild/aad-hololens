@@ -86,7 +86,8 @@ public class MSALLoginProvider : BaseLoginProvider
                     }
                     else
                     {
-                        authResult = await app.AcquireTokenWithDeviceCode(scopes, devicecoderesult =>
+                        authResult = await app.AcquireTokenWithDeviceCode(scopes, 
+                                devicecoderesult =>
                         {
                             Logger.Log(devicecoderesult.Message);
                             return Task.FromResult(0);
